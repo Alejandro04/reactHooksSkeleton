@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Center, Form, H1, WrappLogin, Input, Button } from "./styles";
+import { Center, Form, H1, WrappLogin, Input, Button, Container } from "./styles";
 import AuthGlobal from "../context/store/AuthGlobal";
 import { clientRegister } from "../context/actions/client.action";
 import Error from "../components/Error";
@@ -28,33 +28,35 @@ export default function ClientRegister(props) {
     };
 
     return (
-        <Center>
-            <Form onSubmit={handleSubmit}>
-                <H1>Registro de clientes</H1>
-                <WrappLogin>
-                    <Input
-                        placeholder="Nombre"
-                        onChange={e => setName(e.target.value)}
-                        id="name"
-                        name="name"
-                        value={name}
-                        autoComplete="off"
-                    />
-                    <Input
-                        placeholder="Descripción"
-                        onChange={e => setDescription(e.target.value)}
-                        id="description"
-                        name="description"
-                        value={description}
-                        autoComplete="off"
-                    />
-                    <br />
+        <Container>
+            <Center>
+                <Form onSubmit={handleSubmit}>
+                    <H1>Registro de clientes</H1>
+                    <WrappLogin>
+                        <Input
+                            placeholder="Nombre"
+                            onChange={e => setName(e.target.value)}
+                            id="name"
+                            name="name"
+                            value={name}
+                            autoComplete="off"
+                        />
+                        <Input
+                            placeholder="Descripción"
+                            onChange={e => setDescription(e.target.value)}
+                            id="description"
+                            name="description"
+                            value={description}
+                            autoComplete="off"
+                        />
+                        <br />
 
-                    <Button type="submit">Register</Button>
-                    {error ? <Error mensaje={error} /> : null}
-                    {success ? <Success mensaje={success} /> : null}
-                </WrappLogin>
-            </Form>
-        </Center>
+                        <Button type="submit">Register</Button>
+                        {error ? <Error mensaje={error} /> : null}
+                        {success ? <Success mensaje={success} /> : null}
+                    </WrappLogin>
+                </Form>
+            </Center>
+        </Container>
     );
 }

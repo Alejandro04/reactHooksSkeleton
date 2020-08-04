@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    background: #eee;
+`;
+
 export const Center = styled.div`
     display: flex;
     justify-content: center;
@@ -12,12 +16,11 @@ export const Form = styled.form`
     justify-content: center;
     display: flex;
     border: 2px solid;
-    border-radius: 17px;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 2em;
     padding-bottom: 3em;
-    background: #ddd;
+    background: #dcdcdc;
 `;
 export const H1 = styled.h1`
     font-weight: 700;
@@ -40,7 +43,6 @@ export const Input = styled.input.attrs(props => ({
     background-color: #ffffff;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     border: none;
-    border-radius: 4px;
     padding: 1em;
     margin-bottom: 1.2em;
     width: 100%;
@@ -51,7 +53,6 @@ export const Button = styled.button`
     color: black;
     font-size: 1em;
     padding: 10px 5px 10px 5px;
-    border-radius: 3px;
     border: 0;
     width: 100%;
     margin-top:1em

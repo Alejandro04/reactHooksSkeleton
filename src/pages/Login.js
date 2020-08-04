@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Center, Form, H1, WrappLogin, Input, Button } from "./styles";
+import { Center, Form, H1, WrappLogin, Input, Button, Container } from "./styles";
 import AuthGlobal from "../context/store/AuthGlobal";
 import { loginUser } from "../context/actions/autenticacion.action";
 import Error from "../components/Error";
@@ -36,33 +36,35 @@ export default function Login(props) {
         return null;
     } else {
         return (
-            <Center>
-                <Form onSubmit={handleSubmit}>
-                    <H1>Login</H1>
-                    <WrappLogin>
-                        <Input
-                            placeholder="Ingrese Usuario"
-                            onChange={e => setEmail(e.target.value)}
-                            id="email"
-                            name="email"
-                            value={email}
-                            autoComplete="off"
-                        />
-                        <Input
-                            type="password"
-                            placeholder="Ingrese Clave"
-                            onChange={e => setPassword(e.target.value)}
-                            id="password"
-                            name="password"
-                            value={password}
-                        />
-                        <br />
+            <Container>
+                <Center>
+                    <Form onSubmit={handleSubmit}>
+                        <H1>Login</H1>
+                        <WrappLogin>
+                            <Input
+                                placeholder="Ingrese Usuario"
+                                onChange={e => setEmail(e.target.value)}
+                                id="email"
+                                name="email"
+                                value={email}
+                                autoComplete="off"
+                            />
+                            <Input
+                                type="password"
+                                placeholder="Ingrese Clave"
+                                onChange={e => setPassword(e.target.value)}
+                                id="password"
+                                name="password"
+                                value={password}
+                            />
+                            <br />
 
-                        <Button type="submit">Ingresar</Button>
-                        {error ? <Error mensaje={error} /> : null}
-                    </WrappLogin>
-                </Form>
-            </Center>
+                            <Button type="submit">Ingresar</Button>
+                            {error ? <Error mensaje={error} /> : null}
+                        </WrappLogin>
+                    </Form>
+                </Center>
+            </Container>
         );
     }
 }
