@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import Header from "../components/Header";
 import AuthGlobal from "../context/store/AuthGlobal";
-import {Table,Tbody,Thead,Td,Th} from './styles'
+import {
+    Table
+} from 'react-bootstrap';
 
 export default function Client(props) {
     const context = useContext(AuthGlobal);
@@ -42,17 +44,26 @@ export default function Client(props) {
     } else {
         return (
             <div>
-                <Header />
-                {clients?
-                <Table>
-                    <Thead><tr><Th>Nombre</Th><Th>Descripción</Th></tr></Thead>
-                <Tbody>{clients.map((client,index)=>{
-                    return(
-                <tr key={index}><Td>{client.name}</Td><Td>{client.description}</Td></tr>
-                    )
-                })}</Tbody>
-                </Table>:null}
-            </div>
+            <Header/>
+            <Table style={{position: "absolute", top: "80px"}} striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {clients ? clients.map((client, index) => {
+                        return (
+                            <tr key={index}>
+                                <td> {client.name} </td>
+                                <td> {client.description} </td>
+                            </tr>
+                        )
+                    }) : null}
+                </tbody>
+            </Table>
+        </div>
         );
     }
 }

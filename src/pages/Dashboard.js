@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import Header from "../components/Header";
+import {
+    Table
+} from 'react-bootstrap';
 import AuthGlobal from "../context/store/AuthGlobal";
-import {Table,Tbody,Thead,Td,Th} from './styles'
 
 export default function Dashboard(props) {
     const context = useContext(AuthGlobal);
@@ -42,16 +44,25 @@ export default function Dashboard(props) {
     } else {
         return (
             <div>
-                <Header />
-                {users?
-                <Table>
-                    <Thead><tr><Th>Nombre</Th><Th>Correo</Th></tr></Thead>
-                <Tbody>{users.map((user,index)=>{
-                    return(
-                <tr key={index}><Td>{user.name}</Td><Td>{user.email}</Td></tr>
-                    )
-                })}</Tbody>
-                </Table>:null}
+                <Header/>
+                <Table style={{position: "absolute", top: "80px"}} striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users ? users.map((user, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td> {user.name} </td>
+                                    <td> {user.email} </td>
+                                </tr>
+                            )
+                        }) : null}
+                    </tbody>
+                </Table>
             </div>
         );
     }
