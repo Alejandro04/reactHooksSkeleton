@@ -9,7 +9,7 @@ export default function(state , action ){
             return {
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),
-                user: action.payload
+                user: action.payload.user
             }
         default: 
             return state;

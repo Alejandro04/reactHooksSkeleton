@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from 'react-router-dom'
 import {
     Navbar,
     DivNavbar,
@@ -14,6 +15,17 @@ import { logoutUser } from "../context/actions/autenticacion.action";
 
 export default function Header() {
     const context = useContext(AuthGlobal);
+
+    console.log(context)
+
+    let name = ""
+    let email = ""
+
+    if(context.stateUser.user !== undefined){
+        name = context.stateUser.user.name
+        email = context.stateUser.user.email
+    }
+   
     const logout = () => {
         logoutUser(context.dispatch);
     };
@@ -23,13 +35,15 @@ export default function Header() {
             <DivNavbar>
                 <Wrapper>
                     <NavLinks>
+                    <Link style={{color: "#fff", marginRight: "20px"}} to={"/home"}>Users</Link>
+                    <Link style={{color: "#fff", marginRight: "20px"}} to={"/clients"}>Clients</Link>
                         {context.stateUser.isAuthenticated === true ? (
                             <>
                                 <Alinks>
-                                    {context.stateUser.user.name}
+                                    {name}
                                 </Alinks>
                                 <Alinks>
-                                    {context.stateUser.user.email}
+                                    {email}
                                 </Alinks>
                             </>
                         ) : null}

@@ -13,8 +13,8 @@ function App() {
                 <Switch>
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
-                    <Route path="/" component={Dashboard} />
                     <Route path="/clients" component={Client} />
+                    <Route path="/" component={Dashboard} />
                 </Switch>
             </BrowserRouter>
         </Auth>

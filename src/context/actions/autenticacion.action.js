@@ -1,4 +1,3 @@
-import jwt_decode from "jwt-decode";
 import axios from "axios";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
@@ -17,9 +16,8 @@ export const loginUser = (user,dispatch,seterror) =>{ //login
       if (data.token) {
         const token = data.token;
         localStorage.setItem("jwt", token);
-        const decoded = jwt_decode(token);
         seterror("")
-        dispatch(setCurrentUser(decoded));
+        dispatch(setCurrentUser(data));
       } else {
         seterror(data.err.message)
         logoutUser(dispatch);
@@ -31,10 +29,10 @@ export const loginUser = (user,dispatch,seterror) =>{ //login
 
 };
 
-export const setCurrentUser = decoded => {//si se loguea , setear datos del usuario
+export const setCurrentUser = data => {//si se loguea , setear datos del usuario
   return {
     type: SET_CURRENT_USER,
-    payload: decoded
+    payload: data
   };
 };
 

@@ -45,10 +45,10 @@ export default function Client(props) {
                 <Header />
                 {clients?
                 <Table>
-                    <Thead><tr><Th>Nombre</Th><Th>Correo</Th></tr></Thead>
-                <Tbody>{clients.map((user,index)=>{
+                    <Thead><tr><Th>Nombre</Th><Th>Descripción</Th></tr></Thead>
+                <Tbody>{clients.map((client,index)=>{
                     return(
-                <tr key={index}><Td>{user.name}</Td><Td>{user.email}</Td></tr>
+                <tr key={index}><Td>{client.name}</Td><Td>{client.description}</Td></tr>
                     )
                 })}</Tbody>
                 </Table>:null}

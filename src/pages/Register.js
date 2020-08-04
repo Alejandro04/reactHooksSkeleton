@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Center, Form, H1, WrappLogin, Input, Button } from "./styles";
 import AuthGlobal from "../context/store/AuthGlobal";
 import { clientRegister } from "../context/actions/client.action";
