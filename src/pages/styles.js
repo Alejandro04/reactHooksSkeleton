@@ -11,14 +11,13 @@ export const Form = styled.form`
     align-items: center;
     justify-content: center;
     display: flex;
-    border: 2px solid #795548;
+    border: 2px solid;
     border-radius: 17px;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 2em;
     padding-bottom: 3em;
-    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
-    background: #534c4c2b;
+    background: #ddd;
 `;
 export const H1 = styled.h1`
     font-weight: 700;
@@ -49,18 +48,16 @@ export const Input = styled.input.attrs(props => ({
 `;
 
 export const Button = styled.button`
-    background: #795548;
-    color: white;
+    color: black;
     font-size: 1em;
     padding: 10px 5px 10px 5px;
-    border: 2px solid #795548;
     border-radius: 3px;
+    border: 0;
     width: 100%;
     margin-top:1em
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: all 200ms ease-in-out;
-
+    background: #ccc;
     :hover{  
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
             transform: translateY(-4px);
@@ -79,17 +76,17 @@ export const Thead = styled.thead`
     background-color: #ddd;
     width: 80%;
     padding: 10px 5px 10px 5px;
-    border-top: 1px #795548 solid;
-    border-left: 1px #795548 solid;
-    border-right: 1px #795548 solid;
+    border-top: 1px solid
+    border-left: 1px solid;
+    border-right: 1px solid;
 `;
 export const Tbody = styled.tbody`
     width: 80%;
     padding: 10px 5px 10px 5px;
-    border-top: 1px #795548 solid;
-    border-left: 1px #795548 solid;
-    border-right: 1px #795548 solid;
-    border-bottom: 1px #795548 solid;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
     height: 200px;
     overflow: scroll;
 `;
