@@ -1,4 +1,5 @@
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export const loginUser = (user,dispatch,seterror) =>{ //login
@@ -41,3 +42,28 @@ export const logoutUser = (dispatch) => {//logout
   localStorage.removeItem("jwt");
   dispatch(setCurrentUser({}));
 };
+
+
+// Register user
+export const registerUser = (user,dispatch,seterror) =>{ //login
+  // Config headers
+  const config = {
+      headers: {
+          "Content-type": "application/json"
+      }
+  }
+
+  console.log("accion")
+
+  const name = user.name
+  const email = user.email
+  const password = user.password
+
+  // Request 
+  const body = JSON.stringify({ name, email, password })
+  axios.post(`http://localhost:4000/api/clients`, body, config)
+      .then(res => dispatch(setCurrentUser(res.token)))
+      .catch(err => {
+        seterror("error")
+      })
+}

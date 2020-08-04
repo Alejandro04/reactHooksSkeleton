@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Client from "./pages/Client";
+import Register from "./pages/Register"
 import Login from "./pages/Login";
 import Auth from "./context/store/Auth";
 
@@ -11,6 +12,7 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
                     <Route path="/" component={Dashboard} />
                     <Route path="/clients" component={Client} />
                 </Switch>

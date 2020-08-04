@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import AuthGlobal from "../context/store/AuthGlobal";
 import {Table,Tbody,Thead,Td,Th} from './styles'
 
-export default function Dashboard(props) {
+export default function Client(props) {
     const context = useContext(AuthGlobal);
     const [showChild, setShowChild] = useState(false);
     const [clients, setClients] = useState([])
